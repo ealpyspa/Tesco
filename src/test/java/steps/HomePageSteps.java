@@ -52,8 +52,8 @@ public class HomePageSteps {
 
     @When("I check the title of the page")
     public void iCheckTheTitleOfThePage() {
-        expectedTitle = "Tesco Groceries - Online food shopping - Grocery delivery - Tesco Online, Tesco From Home";
-        actualTitle = driver.getTitle();
+        String expectedTitle = "Tesco Groceries - Online food shopping - Grocery delivery - Tesco Online, Tesco From Home";
+        String actualTitle = driver.getTitle();
     }
 
     @Then("I see the Tesco home page")

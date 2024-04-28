@@ -1,7 +1,6 @@
 package tests;
 
 import driver.Settings;
-import io.cucumber.java.After;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
@@ -34,17 +33,21 @@ public class HomePageTest {
     }
 
     @AfterEach
-    public void shutDown() {
+    public void tearDown() {
         driver.quit();
     }
 
     @Test
     public void testHomePageLoads() {
-        driver.get(Settings.BASE_URL);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"sticky-bar-cookie-wrapper\"]/span/div/div/div[2]/form[1]/button")));
-        String expectedTitle = "Tesco Groceries - Online food shopping - Grocery delivery - Tesco Online, Tesco From Home";
-        String actualTitle = driver.getTitle();
-        Assertions.assertEquals(expectedTitle, actualTitle);
+        try {
+            driver.get(Settings.BASE_URL);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"sticky-bar-cookie-wrapper\"]/span/div/div/div[2]/form[1]/button")));
+            expectedTitle = "Tesco Groceries - Online food shopping - Grocery delivery - Tesco Online, Tesco From Home";
+            actualTitle = driver.getTitle();
+            Assertions.assertEquals(expectedTitle, actualTitle);
+        } catch (Exception e) {
+            Assertions.fail(e.getMessage());
+        }
     }
 
 }
