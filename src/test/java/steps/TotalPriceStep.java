@@ -1,7 +1,6 @@
 package steps;
 
 import io.cucumber.datatable.DataTable;
-import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -20,11 +19,10 @@ import java.time.Duration;
 import java.util.List;
 import java.util.Map;
 
-public class TotalPriceSteps {
+public class TotalPriceStep {
     WebDriver driver;
     WebDriverWait wait;
     HomePage homePage;
-
     @Before
     public void initializeDriver() {
         WebDriverManager.chromedriver().setup();
@@ -35,37 +33,42 @@ public class TotalPriceSteps {
         driver.manage().window().maximize();
         homePage = new HomePage(driver);
     }
-
     @Given("I am on a Home page")
     public void iAmOnAHomePage() {
         homePage.openWebsite();
+
     }
+
     @And("I accept cookies")
     public void iAcceptCookies() {
         homePage.acceptCookies();
+
+    }
+    @And("I select Groceries tab")
+    public void iSelectGroceriesTab() {
+        homePage.clickOnGroceriesTab();
     }
 
-    @And("I select {string} tab")
-    public void iSelectTab() {
+    @And("I select Fruit&Vegetables tab")
+    public void iSelectFruitVegetablesTab() {
         homePage.clickOnFruitAndVegetablesTab();
 
     }
 
-    @And("I navigate to the {string} tab")
-    public void iNavigateToTheTab() {
+    @And("I select the Fruits tab")
+    public void iSelectTheFruitsTab() {
         homePage.clickOnFruitsTab();
 
     }
 
-    @And("I select {string} sub tab")
-    public void iSelectSubTab() {
+    @And("I select All Fruits tab")
+    public void iSelectAllFruitsTab() {
         homePage.clickOnAllFruitsTab();
 
     }
 
     @And("I add the following fruits to my shopping basket")
     public void iAddTheFollowingFruitsToMyShoppingBasket(DataTable dataTable) {
-        //homePage.clickOnFruitTab();
         List<Map<String, String>> products = dataTable.asMaps(String.class, String.class);
         for (Map<String, String> product : products) {
             String productName = product.get("Product");
@@ -73,12 +76,10 @@ public class TotalPriceSteps {
             addProductToBasket(productName, price);
         }
     }
-
     private void addProductToBasket(String productName, String price) {
         WebElement addButton = driver.findElement(By.xpath("//*[@id=\"tile-2004005406742\"]/div[2]/div[3]/div/div/form/div/div/div[2]/div/div/button/span/span"));
         addButton.click();
     }
-
 
     @When("I view my shopping basket")
     public void iViewMyShoppingBasket() {
@@ -87,11 +88,6 @@ public class TotalPriceSteps {
 
     @Then("the total price displayed in the basket is {string}")
     public void theTotalPriceDisplayedInTheBasketIs(String arg0) {
-    }
-
-    @After
-    public void closeDriver() {
-        driver.quit();
     }
 
 }
