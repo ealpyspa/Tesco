@@ -1,6 +1,5 @@
 package steps;
 
-import driver.Settings;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -9,18 +8,19 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import pages.HomePage;
+
 import java.time.Duration;
 
 public class HomePageSteps {
 
     WebDriver driver;
     WebDriverWait wait;
+    HomePage homePage;
     String expectedTitle;
     String actualTitle;
 
@@ -32,22 +32,18 @@ public class HomePageSteps {
         driver = new ChromeDriver(options);
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.manage().window().maximize();
+        homePage = new HomePage(driver);
     }
 
-    @After
-    public void closeDriver() {
-        driver.quit();
-    }
 
     @Given("I open Tesco website")
     public void iOpenTescoWebsite() {
-        driver.get(Settings.BASE_URL);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"sticky-bar-cookie-wrapper\"]/span/div/div/div[2]/form[1]/button")));
+        homePage.openWebsite();
     }
 
     @And("I accept all cookies")
     public void iAcceptAllCookies() {
-        driver.findElement(By.xpath("//*[@id=\"sticky-bar-cookie-wrapper\"]/span/div/div/div[2]/form[1]/button")).click();
+        homePage.acceptCookies();
     }
 
     @When("I check the title of the page")
@@ -59,6 +55,11 @@ public class HomePageSteps {
     @Then("I see the Tesco home page")
     public void iSeeTheTescoHomePage() {
         Assertions.assertEquals(expectedTitle, actualTitle);
+        driver.quit();
+    }
+
+    @After
+    public void closeDriver() {
         driver.quit();
     }
 }
