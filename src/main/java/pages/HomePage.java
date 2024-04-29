@@ -14,17 +14,38 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//*[@id=\"sticky-bar-cookie-wrapper\"]/span/div/div/div[2]/form[1]/button")
     WebElement cookiesButton;
 
+    @FindBy(xpath = "//*[@id=\"groceries\"]/div/div/ul/li[2]/a/span[1]/text()")
+    WebElement fruitAndVegetablesTab;
+
+    @FindBy(xpath = "//*[@id=\"groceries\"]/div/div[2]/ul/li[2]/ul/li[2]/a")
+    WebElement fruitsTab;
+
+    @FindBy(xpath = "//*[@id=\"groceries\"]/div/div[2]/ul/li[2]/ul/li[2]/ul/li[1]/a")
+    WebElement allFruitsTab;
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
 
     public void openWebsite() {
         driver.get(Settings.BASE_URL);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(String.valueOf(cookiesButton))));
+        wait.until(ExpectedConditions.visibilityOf(cookiesButton));
     }
 
     public void acceptCookies() {
         cookiesButton.click();
+    }
+
+    public void clickOnFruitAndVegetablesTab() {
+        fruitAndVegetablesTab.click();
+    }
+
+    public void clickOnFruitsTab() {
+        fruitsTab.click();
+    }
+
+    public void clickOnAllFruitsTab() {
+        allFruitsTab.click();
     }
 
 }
