@@ -3,12 +3,9 @@ Feature: Total price of a few products is calculated correctly
   Scenario: Verify the total price calculation in the shopping basket
     Given I am on a Home page
     And I accept cookies
+    And I am logged in
     And I select Fruit&Vegetables tab
-    And I select the Fruits tab
-    And I select All Fruits tab
-    And I add the following fruits to my shopping basket
-      | Products | Price |
-      | Banana   | 126   |
-      | Orange   | 137   |
-    When I view my shopping basket
-    Then the total price displayed in the basket is "263"
+    And I select all Fruit&Vegetables tab
+    When I add the first product to my shopping basket
+    And I add the second product to my shopping basket
+    Then the total price displayed in the basket is "525"

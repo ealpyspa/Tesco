@@ -1,28 +1,30 @@
 package steps;
 
-import io.cucumber.datatable.DataTable;
+import driver.Settings;
+import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
+import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HomePage;
+import pages.LoginPage;
 
 import java.time.Duration;
-import java.util.List;
-import java.util.Map;
 
-public class TotalPriceStep {
+public class TotalPriceSteps {
+
     WebDriver driver;
     WebDriverWait wait;
     HomePage homePage;
+    LoginPage loginPage;
+
     @Before
     public void initializeDriver() {
         WebDriverManager.chromedriver().setup();
@@ -32,58 +34,59 @@ public class TotalPriceStep {
         wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         driver.manage().window().maximize();
         homePage = new HomePage(driver);
+        loginPage = new LoginPage(driver);
     }
+
     @Given("I am on a Home page")
     public void iAmOnAHomePage() {
         homePage.openWebsite();
-
     }
 
     @And("I accept cookies")
     public void iAcceptCookies() {
         homePage.acceptCookies();
+    }
+
+    @And("I am logged in")
+    public void iAmLoggedIn() {
+        homePage.clickOnSignInButton();
+        loginPage.isLoaded();
+        loginPage.login(Settings.EMAIL, Settings.PASSWORD);
 
     }
 
     @And("I select Fruit&Vegetables tab")
     public void iSelectFruitVegetablesTab() {
         homePage.clickOnFruitAndVegetablesTab();
+    }
+
+    @And("I select all Fruit&Vegetables tab")
+    public void iSelectAllFruitVegetablesTab() {
+        homePage.clickOnAllFruitAndVegetablesTab();
 
     }
 
-    @And("I select the Fruits tab")
-    public void iSelectTheFruitsTab() {
-        homePage.clickOnFruitsTab();
+    @When("I add the first product to my shopping basket")
+    public void iAddTheFirstProductToMyShoppingBasket() {
+        homePage.addBananaToBasket();
 
     }
 
-    @And("I select All Fruits tab")
-    public void iSelectAllFruitsTab() {
-        homePage.clickOnAllFruitsTab();
-
-    }
-
-    @And("I add the following fruits to my shopping basket")
-    public void iAddTheFollowingFruitsToMyShoppingBasket(DataTable dataTable) {
-        List<Map<String, String>> products = dataTable.asMaps(String.class, String.class);
-        for (Map<String, String> product : products) {
-            String productName = product.get("Product");
-            String price = product.get("Price");
-            addProductToBasket(productName, price);
-        }
-    }
-    private void addProductToBasket(String productName, String price) {
-        WebElement addButton = driver.findElement(By.xpath("//*[@id=\"tile-2004005406742\"]/div[2]/div[3]/div/div/form/div/div/div[2]/div/div/button/span/span"));
-        addButton.click();
-    }
-
-    @When("I view my shopping basket")
-    public void iViewMyShoppingBasket() {
+    @And("I add the second product to my shopping basket")
+    public void iAddTheSecondProductToMyShoppingBasket() {
+        homePage.addCucumberToBasket();
 
     }
 
     @Then("the total price displayed in the basket is {string}")
-    public void theTotalPriceDisplayedInTheBasketIs(String arg0) {
+    public void theTotalPriceDisplayedInTheBasketIs(String expectedTotalPrice) {
+        String actualTotalPrice = homePage.getTotalPrice();
+        Assertions.assertEquals(expectedTotalPrice, actualTotalPrice);
+
+    }
+    @After
+    public void closeDriver() {
+        driver.quit();
     }
 
 }
