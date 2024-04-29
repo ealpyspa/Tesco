@@ -14,10 +14,7 @@ public class HomePage extends BasePage {
     @FindBy(xpath = "//*[@id=\"sticky-bar-cookie-wrapper\"]/span/div/div/div[2]/form[1]/button")
     WebElement cookiesButton;
 
-    @FindBy(id = "groceries")
-    WebElement groceriesTab;
-
-    @FindBy(xpath = "//*[@id=\"groceries\"]/div/div[2]/ul/li[2]/a/span[1]")
+    @FindBy(xpath = "//*[@id=\"groceries\"]/div/div/ul/li[2]")
     WebElement fruitAndVegetablesTab;
 
     @FindBy(xpath = "//*[@id=\"groceries\"]/div/div[2]/ul/li[2]/ul/li[2]/a")
@@ -39,9 +36,6 @@ public class HomePage extends BasePage {
         cookiesButton.click();
     }
 
-    public void clickOnGroceriesTab() {
-        groceriesTab.click();
-    }
 
     public void clickOnFruitAndVegetablesTab() {
         wait.until(ExpectedConditions.visibilityOf(fruitAndVegetablesTab));

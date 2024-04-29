@@ -3,7 +3,6 @@ Feature: Total price of a few products is calculated correctly
   Scenario: Verify the total price calculation in the shopping basket
     Given I am on a Home page
     And I accept cookies
-    And I select Groceries tab
     And I select Fruit&Vegetables tab
     And I select the Fruits tab
     And I select All Fruits tab

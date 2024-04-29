@@ -44,10 +44,6 @@ public class TotalPriceStep {
         homePage.acceptCookies();
 
     }
-    @And("I select Groceries tab")
-    public void iSelectGroceriesTab() {
-        homePage.clickOnGroceriesTab();
-    }
 
     @And("I select Fruit&Vegetables tab")
     public void iSelectFruitVegetablesTab() {
