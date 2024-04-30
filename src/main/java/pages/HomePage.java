@@ -33,11 +33,14 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = Locators.BASKET_BTN)
     WebElement basketButton;
-    /*@FindBy(xpath = Locators.TOTAL_PRICE)
-    WebElement totalPrice;*/
 
     @FindBy(xpath = Locators.TOTAL_PRICE)
     WebElement totalPrice;
+    @FindBy(xpath = Locators.REMOVE_CUCUMBER)
+    WebElement removeCucumberBtn;
+
+    @FindBy(xpath = Locators.REMOVE_BANANA)
+    WebElement removeBananaBtn;
 
     public HomePage(WebDriver driver) {
         super(driver);
@@ -85,5 +88,13 @@ public class HomePage extends BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(totalPrice));
         return totalPrice.getText();
     }
+
+    public void removeCucumber() {
+        removeCucumberBtn.click();
+    }
+    public void removeBanana() {
+        removeBananaBtn.click();
+    }
+
 
 }

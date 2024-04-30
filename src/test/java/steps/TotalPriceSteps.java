@@ -85,13 +85,17 @@ public class TotalPriceSteps {
     }
 
     @Then("the total price displayed in the basket is {string}")
-    public void theTotalPriceDisplayedInTheBasketIs(String expectedTotalPrice) {
+    public void theTotalPriceDisplayedInTheBasketIs(String expectedTotalPrice) throws InterruptedException {
         String actualTotalPrice = homePage.getTotalPrice();
         Assertions.assertEquals(expectedTotalPrice, actualTotalPrice);
     }
 
     @After
-    public void closeDriver() {
+    public void closeDriver() throws InterruptedException {
+        homePage.removeCucumber();
+        Thread.sleep(3000);
+        homePage.removeBanana();
+        Thread.sleep(3000);
         driver.quit();
     }
 

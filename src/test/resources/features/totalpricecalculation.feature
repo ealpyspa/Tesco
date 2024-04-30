@@ -1,4 +1,4 @@
-Feature: Total price of a few products is calculated correctly
+Feature: Total price of a  few products is calculated correctly
 
   Scenario: Verify the total price calculation in the shopping basket
     Given I am on a Home page
