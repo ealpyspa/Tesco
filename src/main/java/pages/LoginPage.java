@@ -1,19 +1,20 @@
 package pages;
 
 import baseitems.BasePage;
+import baseitems.Locators;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class LoginPage extends BasePage {
-    @FindBy(id = "email")
+    @FindBy(id = Locators.EMAIL)
     WebElement email;
 
-    @FindBy(id = "password")
+    @FindBy(id = Locators.PASSWORD)
     WebElement password;
 
-    @FindBy(id = "signin-button")
+    @FindBy(id = Locators.LOGIN_BTN)
     WebElement signInButton;
 
     public LoginPage(WebDriver driver) {

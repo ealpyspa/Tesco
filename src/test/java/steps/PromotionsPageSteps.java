@@ -11,19 +11,16 @@ import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HomePage;
 
 import java.time.Duration;
 
-public class HomePageSteps {
-
+public class PromotionsPageSteps {
     WebDriver driver;
     WebDriverWait wait;
     HomePage homePage;
-    String expectedTitle;
-    String actualTitle;
-
     @Before
     public void initializeDriver() {
         WebDriverManager.chromedriver().setup();
@@ -34,29 +31,30 @@ public class HomePageSteps {
         driver.manage().window().maximize();
         homePage = new HomePage(driver);
     }
-    @Given("I open Tesco website")
-    public void iOpenTescoWebsite() {
+    @Given("I open Tesco home page")
+    public void iOpenTescoHomePage() {
         homePage.openWebsite();
     }
-
-    @And("I accept all cookies")
-    public void iAcceptAllCookies() {
+    @And("I click on cookies button")
+    public void iClickOnCookiesButton() {
         homePage.acceptCookies();
     }
 
-    @When("I check the title of the page")
-    public void iCheckTheTitleOfThePage() {
-        String expectedTitle = "Tesco Groceries - Online food shopping - Grocery delivery - Tesco Online, Tesco From Home";
-        String actualTitle = driver.getTitle();
+    @When("I click on the Promotions tab")
+    public void iClickOnThePromotionsTab() {
+        homePage.clickOnPromotionsTab();
     }
 
-    @Then("I see the Tesco home page")
-    public void iSeeTheTescoHomePage() {
-        Assertions.assertEquals(expectedTitle, actualTitle);
-        driver.quit();
+    @Then("I should be on the Promotions page")
+    public void iShouldBeOnThePromotionsPage() {
+        wait.until(ExpectedConditions.urlContains("promotions"));
+        Assertions.assertTrue(driver.getCurrentUrl().contains("promotions"));
     }
+
     @After
     public void closeDriver() {
         driver.quit();
     }
+
+
 }

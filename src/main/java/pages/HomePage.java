@@ -42,6 +42,9 @@ public class HomePage extends BasePage {
     @FindBy(xpath = Locators.REMOVE_BANANA)
     WebElement removeBananaBtn;
 
+    @FindBy(id = Locators.PROMOTIONS)
+    WebElement promotionsTab;
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -94,6 +97,10 @@ public class HomePage extends BasePage {
     }
     public void removeBanana() {
         removeBananaBtn.click();
+    }
+
+    public void clickOnPromotionsTab() {
+        promotionsTab.click();
     }
 
 }

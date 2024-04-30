@@ -1,6 +1,8 @@
 package baseitems;
 
 public class Locators {
+
+    //HomePage locators
     public static final String COOKIES_BTN = "//*[@id=\"sticky-bar-cookie-wrapper\"]/span/div/div/div[2]/form[1]/button";
     public static final String SIGNIN_BTN = "//*[@id=\"utility-header-login-link\"]/span";
     public static final String FRUIT_AND_VEG_TAB = "//*[@id=\"groceries\"]/div/div/ul/li[2]";
@@ -12,4 +14,11 @@ public class Locators {
     public static final String REMOVE_CUCUMBER = "//*[@id=\"tile-2004009252888\"]/div[3]/div[1]/div/form/div/div/div[2]/div/div/div[2]/div/button[1]/span";
 
     public static final String REMOVE_BANANA = "//*[@id=\"tile-2004005406742\"]/div[3]/div[1]/div/form/div/div/div[2]/div/div/div[2]/div/button[1]/span";
+
+    public static final String PROMOTIONS = "promotions";
+    //Login page locators
+    public static final String EMAIL = "email";
+
+    public static final String PASSWORD = "password";
+    public static final String LOGIN_BTN = "signin-button";
 }
