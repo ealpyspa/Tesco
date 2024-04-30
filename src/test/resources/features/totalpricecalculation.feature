@@ -6,6 +6,7 @@ Feature: Total price of a few products is calculated correctly
     And I am logged in
     And I select Fruit&Vegetables tab
     And I select all Fruit&Vegetables tab
-    When I add the first product to my shopping basket
+    And I add the first product to my shopping basket
     And I add the second product to my shopping basket
+    When I check the basket
     Then the total price displayed in the basket is "525"

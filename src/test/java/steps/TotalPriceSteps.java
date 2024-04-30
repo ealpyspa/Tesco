@@ -66,7 +66,7 @@ public class TotalPriceSteps {
 
     }
 
-    @When("I add the first product to my shopping basket")
+    @And("I add the first product to my shopping basket")
     public void iAddTheFirstProductToMyShoppingBasket() {
         homePage.addBananaToBasket();
 
@@ -78,15 +78,22 @@ public class TotalPriceSteps {
 
     }
 
+    @When("I check the basket")
+    public void iCheckTheBasket() throws InterruptedException {
+        homePage.clickOnBasketButton();
+        Thread.sleep(2000);
+    }
+
     @Then("the total price displayed in the basket is {string}")
     public void theTotalPriceDisplayedInTheBasketIs(String expectedTotalPrice) {
         String actualTotalPrice = homePage.getTotalPrice();
         Assertions.assertEquals(expectedTotalPrice, actualTotalPrice);
-
     }
+
     @After
     public void closeDriver() {
         driver.quit();
     }
+
 
 }

@@ -42,5 +42,4 @@ public class LoginPage extends BasePage {
         fillPasswordField(password);
         clickOnSignInButton();
     }
-
 }

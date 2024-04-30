@@ -1,6 +1,7 @@
 package pages;
 
 import baseitems.BasePage;
+import baseitems.Locators;
 import driver.Settings;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,25 +13,30 @@ import java.time.Duration;
 
 public class HomePage extends BasePage {
 
-    @FindBy(xpath = "//*[@id=\"sticky-bar-cookie-wrapper\"]/span/div/div/div[2]/form[1]/button")
+    @FindBy(xpath = Locators.COOKIES_BTN)
     WebElement cookiesButton;
 
-    @FindBy(xpath = "//*[@id=\"utility-header-login-link\"]/span")
+    @FindBy(xpath = Locators.SIGNIN_BTN)
     WebElement signInButton;
 
-    @FindBy(xpath = "//*[@id=\"groceries\"]/div/div/ul/li[2]")
+    @FindBy(xpath = Locators.FRUIT_AND_VEG_TAB)
     WebElement fruitAndVegetablesTab;
 
-    @FindBy(xpath = "//*[@id=\"groceries\"]/div/div[2]/ul/li[2]/ul/li[1]")
+    @FindBy(xpath = Locators.ALL_FRUIT_AND_VEG)
     WebElement allFruitAndVegetablesTab;
 
-    @FindBy(xpath = "//*[@id=\"tile-2004005406742\"]/div[2]/div[3]/div/div/form/div/div/div[2]/div/div/button")
+    @FindBy(xpath = Locators.ADD_BANANA_BTN)
     WebElement addBananaButton;
 
-    @FindBy(xpath = "//*[@id=\"tile-2004009252888\"]/div[2]/div[3]/div/div/form/div/div/div[2]/div/div/button")
+    @FindBy(xpath = Locators.ADD_CUCUMBER_BTN)
     WebElement addCucumberButton;
 
-    @FindBy(xpath = "//*[@id=\"mini-trolley\"]/div/header/div/div")
+    @FindBy(xpath = Locators.BASKET_BTN)
+    WebElement basketButton;
+    /*@FindBy(xpath = Locators.TOTAL_PRICE)
+    WebElement totalPrice;*/
+
+    @FindBy(xpath = Locators.TOTAL_PRICE)
     WebElement totalPrice;
 
     public HomePage(WebDriver driver) {
@@ -70,10 +76,14 @@ public class HomePage extends BasePage {
         addCucumberButton.click();
     }
 
+    public void clickOnBasketButton() {
+        wait.until(ExpectedConditions.elementToBeClickable(basketButton));
+        basketButton.click();
+    }
+
     public String getTotalPrice() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
         wait.until(ExpectedConditions.elementToBeClickable(totalPrice));
-        return totalPrice.getText().trim();
+        return totalPrice.getText();
     }
 
 }
