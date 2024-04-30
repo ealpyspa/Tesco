@@ -96,5 +96,4 @@ public class HomePage extends BasePage {
         removeBananaBtn.click();
     }
 
-
 }
