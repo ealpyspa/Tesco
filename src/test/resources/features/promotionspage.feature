@@ -1,5 +1,5 @@
 Feature: Promotions are visible
-
+@PromotionsPage
   Scenario: Promotions are available under "Promotions" tab on the home page of Tesco
     Given I open Tesco home page
     And I click on cookies button

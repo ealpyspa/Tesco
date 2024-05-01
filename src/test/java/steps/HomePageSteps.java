@@ -1,39 +1,29 @@
 package steps;
 
+import driver.DriverManager;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.HomePage;
-
-import java.time.Duration;
 
 public class HomePageSteps {
 
-    WebDriver driver;
-    WebDriverWait wait;
-    HomePage homePage;
-    String expectedTitle;
-    String actualTitle;
+    private WebDriver driver;
+    private HomePage homePage;
+    private String expectedTitle;
+    private String actualTitle;
 
-    @Before
-    public void initializeDriver() {
-        WebDriverManager.chromedriver().setup();
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-blink-features=AutomationControlled");
-        driver = new ChromeDriver(options);
-        wait = new WebDriverWait(driver, Duration.ofSeconds(5));
-        driver.manage().window().maximize();
+    @Before("@HomePage")
+    public void setUp() {
+        driver = DriverManager.getDriver();
         homePage = new HomePage(driver);
     }
+
     @Given("I open Tesco website")
     public void iOpenTescoWebsite() {
         homePage.openWebsite();
@@ -55,8 +45,8 @@ public class HomePageSteps {
         Assertions.assertEquals(expectedTitle, actualTitle);
         driver.quit();
     }
-    @After
-    public void closeDriver() {
-        driver.quit();
+    @After("@HomePage")
+    public void tearDown() {
+        DriverManager.quitDriver();
     }
 }
