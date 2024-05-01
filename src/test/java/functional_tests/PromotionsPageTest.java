@@ -1,4 +1,4 @@
-package tests;
+package functional_tests;
 
 import basetestitems.BaseTest;
 import org.junit.jupiter.api.Assertions;

@@ -103,4 +103,5 @@ public class HomePage extends BasePage {
         promotionsTab.click();
     }
 
+
 }

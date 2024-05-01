@@ -1,0 +1,38 @@
+@objects
+    title   xpath   //*[@id="content"]/div/div/div[2]/div/header/div/div[1]/div[2]/a/svg/title
+    departments id  accordion-panel-accordion-content-view-offers-by-department
+    product_list*  xpath //*[@id="carouselWrapper"]/div[2]/div[2]/div[1]/div[2]/div/div/div/div/ul/li
+
+# Header section on desktop and on mobile
+= Header section =
+
+    @on desktop
+        title:
+            width = 121px
+            height= 35px
+
+    @on mobile
+        title:
+            width <121px
+            height <35px
+
+= All items =
+    @on desktop
+        departments:
+            width   <1000px
+            height  200 to 250 px
+
+    @on mobile
+        departments:
+            width   <1000px
+            height  <1000px
+
+    @on desktop
+        product_list*:
+            width   <250x
+            height  <550px
+
+    @on mobile
+        product_list*:
+             width   <1000px
+             height  <1000px

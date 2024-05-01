@@ -16,6 +16,7 @@ public class Locators {
     public static final String REMOVE_BANANA = "//*[@id=\"tile-2004005406742\"]/div[3]/div[1]/div/form/div/div/div[2]/div/div/div[2]/div/button[1]/span";
 
     public static final String PROMOTIONS = "promotions";
+    public static final String TITLE = "//*[@id=\"content\"]/div/div/div[2]/div/header/div/div[1]/div[2]/a/svg/title";
     //Login page locators
     public static final String EMAIL = "email";
 
