@@ -16,6 +16,11 @@ public class LoginPage extends BasePage {
 
     @FindBy(id = Locators.LOGIN_BTN)
     WebElement signInButton;
+    @FindBy(xpath = Locators.INV_PWD_ERROR1)
+    WebElement error1;
+
+    @FindBy(xpath = Locators.INV_PWD_ERROR2)
+    WebElement error2;
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -42,5 +47,8 @@ public class LoginPage extends BasePage {
         fillUserNameField(username);
         fillPasswordField(password);
         clickOnSignInButton();
+    }
+    public String getErrorText() {
+        return error1.getText();
     }
 }

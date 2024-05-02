@@ -1,3 +1,4 @@
+#TODO: fix flaky feature
 Feature: Total price of a  few products is calculated correctly
 @TotalPrice
   Scenario: Verify the total price calculation in the shopping basket

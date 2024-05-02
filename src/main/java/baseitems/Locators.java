@@ -17,9 +17,18 @@ public class Locators {
 
     public static final String PROMOTIONS = "promotions";
     public static final String TITLE = "//*[@id=\"content\"]/div/div/div[2]/div/header/div/div[1]/div[2]/a/svg/title";
+
     //Login page locators
     public static final String EMAIL = "email";
 
     public static final String PASSWORD = "password";
     public static final String LOGIN_BTN = "signin-button";
+    public static final String INVALID_PWD = "123";
+
+    public static final String INV_PWD_ERROR1 = "//*[@id=\"main-content\"]/div/div/div[2]/div/div[2]/p[1]";
+
+    public static final String INV_PWD_ERROR2 = "//*[@id=\"main-content\"]/div/div/div[2]/div/div[2]/p[2]";
+
+    public static final String VALID_EMAIL = "testmaster0865@gmail.com";
+    public static final String VALID_PASSWORD = "testpassA1";
 }

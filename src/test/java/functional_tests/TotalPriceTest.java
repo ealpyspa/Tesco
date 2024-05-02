@@ -1,5 +1,6 @@
 package functional_tests;
 
+import baseitems.Locators;
 import basetestitems.BaseTest;
 import driver.Settings;
 import org.junit.jupiter.api.Assertions;
@@ -16,7 +17,7 @@ public class TotalPriceTest extends BaseTest {
             homePage.openWebsite();
             homePage.acceptCookies();
             homePage.clickOnSignInButton();
-            loginPage.login(Settings.EMAIL, Settings.PASSWORD);
+            loginPage.login(Locators.VALID_EMAIL, Locators.VALID_PASSWORD);
             homePage.clickOnFruitAndVegetablesTab();
             homePage.clickOnAllFruitAndVegetablesTab();
             homePage.addBananaToBasket();

@@ -1,5 +1,6 @@
 package steps;
 
+import baseitems.Locators;
 import driver.DriverManager;
 import driver.Settings;
 import io.cucumber.java.After;
@@ -46,7 +47,7 @@ public class TotalPriceSteps {
     public void iAmLoggedIn() {
         homePage.clickOnSignInButton();
         loginPage.isLoaded();
-        loginPage.login(Settings.EMAIL, Settings.PASSWORD);
+        loginPage.login(Locators.VALID_EMAIL, Locators.VALID_PASSWORD);
 
     }
 
