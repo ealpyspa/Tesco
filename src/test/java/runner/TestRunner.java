@@ -10,7 +10,7 @@ import static io.cucumber.core.options.Constants.PLUGIN_PROPERTY_NAME;
 @SelectPackages("steps")
 @SelectClasspathResource("features")
 @ConfigurationParameter(key = PLUGIN_PROPERTY_NAME, value = "json:reports/jenkins_output.json")
-@ExcludeTags("TotalPrice")
+//@ExcludeTags("TotalPrice") it is flaky test
 //@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 
 public class TestRunner {
