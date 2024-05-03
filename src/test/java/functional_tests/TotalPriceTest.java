@@ -8,6 +8,8 @@ import org.junit.jupiter.api.Test;
 import pages.HomePage;
 import pages.LoginPage;
 
+//Flaky test, it depends on the prices on the website
+
 public class TotalPriceTest extends BaseTest {
     @Test
     public void testTotalPriceCalculation() {
@@ -23,18 +25,18 @@ public class TotalPriceTest extends BaseTest {
             homePage.addBananaToBasket();
             homePage.addCucumberToBasket();
             homePage.clickOnBasketButton();
-            Thread.sleep(2000);
+            Thread.sleep(999);
 
-            String expectedTotalPrice = "525";
+            String expectedTotalPrice = "257";
             String actualTotalPrice = homePage.getTotalPrice();
             Thread.sleep(2000);
 
             Assertions.assertEquals(expectedTotalPrice, actualTotalPrice);
 
             homePage.removeCucumber();
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             homePage.removeBanana();
-            Thread.sleep(3000);
+            Thread.sleep(2000);
 
         } catch (Exception e) {
             Assertions.fail(e.getMessage());

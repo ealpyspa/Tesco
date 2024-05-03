@@ -77,7 +77,7 @@ public class TotalPriceSteps {
     @When("I check the basket")
     public void iCheckTheBasket() throws InterruptedException {
         homePage.clickOnBasketButton();
-        Thread.sleep(2000);
+        Thread.sleep(999);
     }
 
     @Then("the total price displayed in the basket is {string}")

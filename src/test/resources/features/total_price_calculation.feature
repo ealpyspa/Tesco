@@ -1,4 +1,4 @@
-#TODO: fix flaky feature
+#Flaky test, it depends on the prices on the website
 Feature: Total price of a  few products is calculated correctly
 @TotalPrice
   Scenario: Verify the total price calculation in the shopping basket
@@ -10,4 +10,4 @@ Feature: Total price of a  few products is calculated correctly
     And I add the first product to my shopping basket
     And I add the second product to my shopping basket
     When I check the basket
-    Then the total price displayed in the basket is "525"
+    Then the total price displayed in the basket is "257"
