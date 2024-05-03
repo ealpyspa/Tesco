@@ -2,6 +2,7 @@ package pages;
 
 import baseitems.BasePage;
 import baseitems.Locators;
+import io.cucumber.java.an.E;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -19,8 +20,6 @@ public class LoginPage extends BasePage {
     @FindBy(xpath = Locators.INV_PWD_ERROR1)
     WebElement error1;
 
-    @FindBy(xpath = Locators.INV_PWD_ERROR2)
-    WebElement error2;
 
     public LoginPage(WebDriver driver) {
         super(driver);
@@ -49,6 +48,7 @@ public class LoginPage extends BasePage {
         clickOnSignInButton();
     }
     public String getErrorText() {
+        wait.until(ExpectedConditions.elementToBeClickable(error1));
         return error1.getText();
     }
 }

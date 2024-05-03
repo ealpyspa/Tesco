@@ -46,7 +46,6 @@ public class InvalidLoginSteps {
         loginPage.fillUserNameField(Locators.VALID_EMAIL);
         loginPage.fillPasswordField(Locators.INVALID_PWD);
         loginPage.clickOnSignInButton();
-        Thread.sleep(999);
     }
 
     @Then("I see the error message")

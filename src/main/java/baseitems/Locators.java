@@ -31,8 +31,6 @@ public class Locators {
 
     public static final String INV_PWD_ERROR1 = "//*[@id=\"main-content\"]/div/div/div[2]/div/div[2]/p[1]";
 
-    public static final String INV_PWD_ERROR2 = "//*[@id=\"main-content\"]/div/div/div[2]/div/div[2]/p[2]";
-
     public static final String VALID_EMAIL = "testmaster0865@gmail.com";
     public static final String VALID_PASSWORD = "testpassA1";
 }
