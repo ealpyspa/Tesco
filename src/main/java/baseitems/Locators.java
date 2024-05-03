@@ -18,6 +18,10 @@ public class Locators {
     public static final String PROMOTIONS = "promotions";
     public static final String TITLE = "//*[@id=\"content\"]/div/div/div[2]/div/header/div/div[1]/div[2]/a/svg/title";
 
+    public static final String SEARCH_FIELD = "search-input";
+
+    public static final String SEARCH_BTN = "//*[@id=\"search-form\"]/button";
+
     //Login page locators
     public static final String EMAIL = "email";
 

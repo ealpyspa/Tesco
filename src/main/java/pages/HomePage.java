@@ -45,6 +45,12 @@ public class HomePage extends BasePage {
     @FindBy(id = Locators.PROMOTIONS)
     WebElement promotionsTab;
 
+    @FindBy(id = Locators.SEARCH_FIELD)
+    WebElement searchField;
+
+    @FindBy(xpath = Locators.SEARCH_BTN)
+    WebElement searchButton;
+
     public HomePage(WebDriver driver) {
         super(driver);
     }
@@ -101,6 +107,14 @@ public class HomePage extends BasePage {
 
     public void clickOnPromotionsTab() {
         promotionsTab.click();
+    }
+
+    public void fillSearchField(String product){
+        searchField.clear();
+        searchField.sendKeys(product);
+    }
+    public void clickOnSearchButton() {
+        searchButton.click();
     }
 
 
