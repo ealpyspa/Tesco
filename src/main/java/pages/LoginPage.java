@@ -48,7 +48,7 @@ public class LoginPage extends BasePage {
         clickOnSignInButton();
     }
     public String getErrorText() {
-        wait.until(ExpectedConditions.elementToBeClickable(error1));
+        wait.until(ExpectedConditions.visibilityOf(error1));
         return error1.getText();
     }
 }
