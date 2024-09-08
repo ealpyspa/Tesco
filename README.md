@@ -4,7 +4,7 @@
 
 This is a test automation project created to test the functionality of a web application. The project is designed to showcase my understanding of basic automation principles learned during a test automation course.
 
-## System under test
+## System Under Test
 Tesco Shopping https://bevasarlas.tesco.hu/groceries/en-GB
 
 ## Tech Stack
