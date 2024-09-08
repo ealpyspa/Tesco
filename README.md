@@ -26,8 +26,7 @@ Tesco Shopping https://bevasarlas.tesco.hu/groceries/en-GB
    `git clone https://github.com/ealpyspa/Tesco.git`
 2. Open the project in IntelliJ IDEA or any preferred IDE.
 3. Run `mvn clean install` to build the project.
-4. Run tests using:  
-   `mvn test`
+4. Run tests using: `mvn test`
 
 ## Future Improvements
 - Add layout tests.
