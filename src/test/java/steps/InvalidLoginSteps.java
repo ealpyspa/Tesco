@@ -2,16 +2,13 @@ package steps;
 
 import baseitems.Locators;
 import driver.DriverManager;
-import driver.Settings;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.apache.commons.logging.Log;
 import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import pages.HomePage;
 import pages.LoginPage;
@@ -36,7 +33,7 @@ public class InvalidLoginSteps {
         homePage.acceptCookies();
     }
 
-    @And("I click on the sig in button")
+    @And("I click on the sign in button")
     public void iClickOnTheSigInButton() {
         homePage.clickOnSignInButton();
     }

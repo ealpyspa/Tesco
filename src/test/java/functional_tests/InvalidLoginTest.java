@@ -15,12 +15,17 @@ public class InvalidLoginTest extends BaseTest {
             homePage.openWebsite();
             homePage.acceptCookies();
             homePage.clickOnSignInButton();
+
             LoginPage loginPage = new LoginPage(driver);
+            loginPage.isLoaded();
             loginPage.fillUserNameField(Locators.VALID_EMAIL);
             loginPage.fillPasswordField(Locators.INVALID_PWD);
             loginPage.clickOnSignInButton();
+
             String expectedError1 = "Unfortunately we do not recognise those details.";
+
             Assertions.assertEquals(expectedError1, loginPage.getErrorText());
+
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
         }

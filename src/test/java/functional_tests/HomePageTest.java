@@ -13,9 +13,12 @@ public class HomePageTest extends BaseTest {
             HomePage homePage = new HomePage(driver);
             homePage.openWebsite();
             homePage.acceptCookies();
+
             String expectedTitle = "Tesco Groceries - Online food shopping - Grocery delivery - Tesco Online, Tesco From Home";
             String actualTitle = driver.getTitle();
+
             Assertions.assertEquals(expectedTitle, actualTitle);
+
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
         }

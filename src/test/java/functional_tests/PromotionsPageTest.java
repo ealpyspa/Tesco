@@ -13,7 +13,9 @@ public class PromotionsPageTest extends BaseTest {
             homePage.openWebsite();
             homePage.acceptCookies();
             homePage.clickOnPromotionsTab();
+
             Assertions.assertTrue(driver.getCurrentUrl().contains("promotions"));
+
         } catch (Exception e) {
             Assertions.fail(e.getMessage());
         }

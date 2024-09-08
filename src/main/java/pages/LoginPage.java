@@ -2,7 +2,6 @@ package pages;
 
 import baseitems.BasePage;
 import baseitems.Locators;
-import io.cucumber.java.an.E;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
