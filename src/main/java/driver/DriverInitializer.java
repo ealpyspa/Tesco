@@ -12,7 +12,7 @@ public class DriverInitializer {
         switch (type) {
             case CHROME_DESKTOP:
                 ChromeOptions desktopOptions = new ChromeOptions();
-                desktopOptions.addArguments("window-size=1024,800");
+                desktopOptions.addArguments("window-size=1920,1080");
                 return new ChromeDriver(desktopOptions);
             case CHROME_NEXUS:
                 Map<String, String> mobileEmulation = new HashMap<>();
